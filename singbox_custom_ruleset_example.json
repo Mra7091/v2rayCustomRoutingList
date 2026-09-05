@@ -1,22 +1,26 @@
 [
   {
-    "tag": "geosite-category-ads-all",
-    "type": "local",
-    "format": "binary",
-    "path": "C:\\v2rayN\\srss\\geosite-category-ads-all.srs"
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:ir",
+      "regexp:.*\\.ir$"
+    ]
   },
   {
-    "tag": "geosite-cn",
-    "type": "remote",
-    "format": "binary",
-    "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-    "download_detour": "proxy"
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:ir",
+      "geoip:private"
+    ]
   },
   {
-    "tag": "geoip-cn",
-    "type": "remote",
-    "format": "binary",
-    "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-    "download_detour": "proxy"
+    "outboundTag": "block",
+    "domain": [
+      "geosite:category-ads-all"
+    ]
+  },
+  {
+    "outboundTag": "proxy",
+    "port": "0-65535"
   }
 ]
